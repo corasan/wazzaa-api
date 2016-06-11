@@ -6,7 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :api_key
       t.string :email
-      t.string :password
+      t.string :provider
+      t.string :uid
 
       t.timestamps
     end
