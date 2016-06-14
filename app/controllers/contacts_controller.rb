@@ -1,9 +1,12 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :update, :destroy]
+  # before_action :set_user_contacts, only: [:index]
 
   # GET /contacts
   def index
-    @contacts = Contact.all
+    @contacts = Contact.find(params[:user_id])
+
+    # @contacts = @user.contacts.all
 
     render json: @contacts
   end
@@ -43,6 +46,10 @@ class ContactsController < ApplicationController
     def set_contact
       @contact = Contact.find(params[:id])
     end
+
+    # def set_user_contacts
+    #     @user = User.find(params[:id])
+    # end
 
     # Only allow a trusted parameter "white list" through.
     def contact_params
