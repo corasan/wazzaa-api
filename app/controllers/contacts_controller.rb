@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :update, :destroy]
   # before_action :set_user_contacts, only: [:index]
 
-  # GET /contacts
+  # GET /contacts of user
   def index
     @contacts = Contact.find(params[:user_id])
 
